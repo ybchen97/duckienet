@@ -1,0 +1,32 @@
+<launch>
+  <!-- <param name="/use_sim_time" value="true"/>
+  -->
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_imu" clear_params="true">
+
+    <rosparam command="load" file="/mnt/intention_net/control/launch/ekf_imu_odom.yaml" />
+
+   <!--  Placeholder for output topic remapping
+    <remap from="odometry/filtered" to=""/>
+    <remap from="accel/filtered" to=""/>
+    -->
+
+  </node>
+
+  
+  
+<!--  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_amcl" clear_params="true">
+
+    <rosparam command="load" file="/mnt/intention_net/control/launch/ekf_amcl.yaml" />
+  
+    <remap from="/odometry/filtered" to="/map_pose"/>
+    <remap from="accel/filtered" to=""/>
+
+  </node>
+  -->
+
+  
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_mynteye" args="0 0 0.1397 0 0 0 base_link mynteye_link_frame 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_mynteye_1" args="0 0 0.1397 0 0 1 0 base_link mynteye_1_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_mynteye_2" args="0 0 0.1397 0 0 0.6427876 -0.7660444 base_link mynteye_2_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_mynteye_3" args="0 0 0.1397 0 0 0.6427876 0.7660444 base_link mynteye_3_link 100"/>
+</launch>

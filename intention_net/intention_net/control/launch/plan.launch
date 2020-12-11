@@ -1,0 +1,19 @@
+<launch>
+    <arg name="map_file" default="/mnt/intention_net/data/maps/COM1_L1.yaml" />
+
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+        <param name="frame_id" value="map" />
+    </node>
+
+    <node name="global_planner" pkg="navfn" type="navfn_node" output="screen">
+        <param name="navfn_planner/visualize_potential" type="bool" value="true" />
+        <param name="costmap/static_map" type="bool" value="true" />
+        <rosparam file="$(find p3dx)/setting/costmap_common_params_p3dx.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find p3dx)/setting/global_costmap_params.yaml" command="load" />
+    </node>
+
+    <!-- PIONEER ROBOT MODEL -->
+    <include file="$(find p2os_urdf)/launch/pioneer3dx_urdf.launch" />
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d /mnt/intention_net/control/launch/pioneer.rviz" />
+</launch>

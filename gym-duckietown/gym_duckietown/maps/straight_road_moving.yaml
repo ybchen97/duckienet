@@ -1,0 +1,221 @@
+# Linear stretch of road. Basic test case.
+tiles:
+- [straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E, straight/E]
+
+# Always start driving on the leftmost tile
+# The position and direction of the agent on the tile will be randomized
+start_pos: [0.5, 0, 0.5]
+start_angle: 0
+goal_pos: [10, 0, 0]
+
+tile_size: 1
+
+objects:
+# Road obstacles (34 in total, 1 per tile except start & goal)
+- kind: duckie
+  pos: [1.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+
+- kind: duckie
+  pos: [2.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+  
+- kind: duckie
+  pos: [3.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [4.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [5.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [6.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [7.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [8.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [9.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [10.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [11.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [12.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [13.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [14.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [15.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [16.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [17.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [18.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [19.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [20.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [21.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [22.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [23.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [24.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [25.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [26.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [27.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [28.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [29.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [30.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [31.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [32.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [33.5, 0.32]
+  rotate: -90
+  height: 0.08
+  optional: false
+  static: false
+- kind: duckie
+  pos: [34.5, 0.68]
+  rotate: 90
+  height: 0.08
+  optional: false
+  static: false
+

@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python ../src/train.py --batch_size 32 --log_interval 2000 

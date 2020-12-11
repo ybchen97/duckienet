@@ -1,0 +1,71 @@
+<launch>
+    
+    <!-- LAUNCH PIONEER ROBOT -->
+    <node pkg="rosaria" type="RosAria" name="RosAria">  
+        <param name="port" value="/dev/ttyUSB0" />
+        <param name="odom_frame" value="Aria_odom"/>
+        <param name="base_link_frame" value="Aria_base_link"/>
+    </node>
+
+    <!-- LAUNCH JOYSTICK -->
+    <include file="/mnt/intention_net/control/launch/joy.launch"/>
+
+    <!-- LAUNCH MYNTEYE SENSOR -->
+    <!-- robot number-->
+    <arg name="robot" default="2"/>
+
+    <group if="$(eval 'robot'=='1')">
+      <include file="/mnt/intention_net/control/launch/mynteye_4.launch"/>
+      <include file="/mnt/intention_net/control/launch/mynteye_5.launch"/>
+      <include file="/mnt/intention_net/control/launch/mynteye_6.launch"/>
+    </group>
+
+    <group if="$(eval 'robot'=='2')">
+      <include file="/mnt/intention_net/control/launch/mynteye_1.launch"/>
+      <include file="/mnt/intention_net/control/launch/mynteye_2.launch"/>
+      <include file="/mnt/intention_net/control/launch/mynteye_3.launch"/>
+    </group>
+
+    <!-- <include file="/mnt/intention_net/control/launch/mynteye_4.launch"/> -->
+    <include file="/mnt/intention_net/control/launch/mynteye.launch"/>
+    <include file="/mnt/intention_net/control/launch/ladar.launch"/>
+    <include file="/mnt/intention_net/control/launch/amcl.launch" />
+
+
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0 0 0.1397 0 0 0 base_link laser 100"/>
+    <!-- LAUNCH ROBOT_LOCALIZATION EKF NODE -->
+    <include file="/mnt/intention_net/control/launch/ekf_template.launch"/>
+
+    <!-- ROSBAG RECORD NODE-->
+    <arg name="record"  default="True"/> <!-- Pass record:= True to enable recording-->
+
+    <group if="$(arg record)"> 
+      <node pkg="rosbag"
+           type="record"
+           name="train_recorder"
+           output="screen"
+           args="-o /data/data
+                 /train/mynteye/left_img/compressed 
+                 /train/mynteye/right_img/compressed
+                 /train/mynteye/depth_img/compressed 
+                 /train/mynteye_1/left_img/compressed
+                 /train/mynteye_1/right_img/compressed
+                 /train/mynteye_1/depth_img/compressed
+                 /train/mynteye_2/left_img/compressed
+                 /train/mynteye_2/right_img/compressed
+                 /train/mynteye_2/depth_img/compressed
+                 /train/mynteye_3/left_img/compressed
+                 /train/mynteye_3/right_img/compressed
+                 /train/mynteye_3/depth_img/compressed
+                 /train/cmd_vel 
+                 /train/intention
+		             /train/scan
+		             /train/imu
+		             /train/imu1
+		             /train/imu2
+		             /train/imu3
+		             /train/odometry/filtered" />
+  </group>
+
+</launch>
+

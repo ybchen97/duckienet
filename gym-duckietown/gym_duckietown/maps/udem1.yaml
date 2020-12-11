@@ -1,0 +1,190 @@
+# The following section defines the grid layout.
+#
+# Each row is an array of tiles descriptions.
+# The top-left tile in this file maps to coordinates (0, 0) in the world
+# Each tile contains a string with the kind of tile and its orientation.
+# The orientations are North, South, East, West. This is the direction in
+# which the agent is expected to drive when going onto this tile.
+tiles:
+- [floor    , floor         , floor     , floor         , floor     , floor         , floor         , floor]
+- [floor    , curve_left/W  , straight/W, 3way_left/W   , straight/W, straight/W    , curve_left/N  , asphalt]
+- [floor    , straight/S    , grass     , straight/N    , asphalt   , asphalt       , straight/N    , asphalt]
+- [floor    , 3way_left/S   , straight/W, 3way_left/N   , asphalt   , asphalt       , straight/N    , asphalt]
+- [floor    , straight/S    , grass     , straight/N    , asphalt   , curve_right/N , curve_left/E  , asphalt]
+- [floor    , curve_left/S  , straight/E, 3way_left/E   , straight/E, curve_left/E  , asphalt       , asphalt]
+- [floor    , floor         , floor     , floor         , floor     , floor         , floor         , floor]
+
+# The following is a listing of 3D objects placed on the map
+#
+# pos: object positions are scaled according to the tile size, so
+#      that (1.5, 2.5) would be exactly in the middle of tile (1, 2)
+# height: Objects can be scaled according to their real-world height in meters
+#         Duckietown tiles are 61cm, or 0.61 meter
+# rotate: the rotation start_angle determine the object's orientation
+#         a positive rotation start_angle corresponds to a counter-clockwise
+#         (leftward) rotation. The start_angles are in degrees.
+#         Models should, at start_angle 0, face towards the positive X axis.
+objects:
+
+- kind: tree
+  pos: [2.5, 4.5]
+  rotate: 180
+  height: 0.25
+  optional: true
+
+- kind: duckie
+  pos: [2.5, 2.9]
+  rotate: -90
+  height: 0.08
+  optional: true
+
+- kind: sign_stop
+  pos: [2.08, 4.05]
+  rotate: 90
+  height: 0.18
+- kind: sign_left_T_intersect
+  pos: [0.94, 3.96]
+  rotate: 90
+  height: 0.18
+- kind: sign_stop
+  pos: [2.08, 2.96]
+  rotate: -90
+  height: 0.18
+- kind: sign_right_T_intersect
+  pos: [0.94, 3.05]
+  rotate: -90
+  height: 0.18
+- kind: sign_stop
+  pos: [0.94, 4.05]
+  rotate: 0
+  height: 0.18
+- kind: sign_T_intersect
+  pos: [0.94, 2.96]
+  rotate: 0
+  height: 0.18
+
+- kind: house
+  pos: [4.8, 2.6]
+  rotate: 90
+  height: 0.5
+  optional: true
+
+- kind: truck
+  pos: [1.6, 6.3]
+  rotate: 0
+  height: 0.2
+  optional: true
+
+- kind: bus
+  pos: [2.0, 0.5]
+  rotate: 0
+  height: 0.18
+  optional: true
+- kind: bus
+  pos: [4, 0.5]
+  rotate: 0
+  height: 0.18
+  optional: true
+- kind: bus
+  pos: [6.0, 0.5]
+  rotate: 0
+  height: 0.18
+  optional: true
+- kind: truck
+  pos: [7.5, 0.5]
+  rotate: 180
+  height: 0.2
+  optional: true
+
+# Road obstacles
+- kind: duckie
+  pos: [1.5, 1.5]
+  rotate: -90
+  height: 0.08
+  optional: false
+- kind: duckie
+  pos: [5.1, 5.3]
+  rotate: -90
+  height: 0.08
+  optional: false
+- kind: duckie
+  pos: [6.2, 2.5]
+  rotate: -90
+  height: 0.08
+  optional: false
+- kind: duckie
+  pos: [3.7, 1.8]
+  rotate: -90
+  height: 0.08
+  optional: false
+- kind: duckie
+  pos: [3.3, 3.7]
+  rotate: -90
+  height: 0.08
+  optional: false
+- kind: duckie
+  pos: [1.3, 3.1]
+  rotate: -90
+  height: 0.08
+  optional: false
+- kind: duckie
+  pos: [1.75, 5.3]
+  rotate: -90
+  height: 0.08
+  optional: false
+- kind: duckie
+  pos: [5.65, 1.5]
+  rotate: -90
+  height: 0.08
+  optional: false
+
+# start_tile: [5, 4] # 0
+
+# # 1 
+# start_pos: [6.57, 0, 4.49]
+# start_angle: 183
+# # 2 
+# start_pos: [4.2, 0, 5.58]
+# start_angle: 0
+# # 3 
+# start_pos: [6.52, 0, 1.84] 
+# start_angle: 270 
+# # 4 
+# start_pos: [3.5, 0, 4.3]
+# start_angle: 270
+# # 5
+# start_pos: [3.5, 0, 3.2]
+# start_angle: 270
+# # 6 
+# start_pos: [2.15, 0, 3.3]
+# start_angle: 0
+# # 7 
+# start_pos: [3.4, 0, 1.7]
+# start_angle: 270
+# start_pos: [3.7, 0, 1.5]
+# start_angle: 0
+# # 9
+# start_pos: [1.5, 0, 1.77]  # Not working
+# start_angle: 270
+# start_pos: [1.8, 0, 1.5]
+# start_angle: 0
+# #
+# start_pos: [1.5, 0, 3.5]
+# start_angle: 0
+# start_pos: [1.5, 0, 3.5]
+# start_angle: 270
+start_pos: [4.8, 0, 1.5]
+start_angle: 0
+
+goal_pos: [5.5, 0, 4.5]
+
+# Alternative goal positions
+# start_pos: [4.7, 0, 5.5]
+# start_angle: 180
+# goal_pos: [3, 0, 1]
+
+# start_pos: [6.5, 0, 3.3]
+# start_angle: 270
+# goal_pos: [2, 0, 3]
+
+tile_size: 1
